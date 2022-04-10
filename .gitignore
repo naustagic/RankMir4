@@ -2,3 +2,4 @@
 token.json
 client_secret.json
 geckodriver.log
+.gitignore
