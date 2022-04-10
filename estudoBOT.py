@@ -32,7 +32,7 @@ atualizacao = np.array([data_atualizacao]).tolist()
 
 # Leitura do arquivo configs.json
 
-configs = pd.read_json('configsTESTE.json').to_dict('records')
+configs = pd.read_json('configs.json').to_dict('records')
 for config in configs:
     cla = np.array(config['clan'])
     mundo = str(config['mundo'])
@@ -104,7 +104,7 @@ for membro in info_tabela:
             rank_cla = rank_cla+1
 
 js = json.dumps(linha_array)
-fp = open('membrosTESTE.json', 'w')
+fp = open('membros.json', 'w')
 fp.write(js)
 fp.close
 driver.quit
