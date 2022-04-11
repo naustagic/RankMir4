@@ -18,6 +18,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
+
 # ! CORRIGIR OS UPDATE QUE ESTÃO DUPLICANDO AS MENSAGENS DOS BOTS DISCORD
 # TODO Verificar correção dos UPDATES no googlesheet que estão duplicando inserts do BOTDiscord.
 
