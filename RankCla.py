@@ -1,4 +1,3 @@
-# GoogleSheet
 from __future__ import print_function
 from msvcrt import LK_LOCK
 import os.path
@@ -18,17 +17,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
+data = np.empty_like
+data = datetime.datetime.now()
+data_atual = data.strftime('%d/%m/%Y')
+hora_atual = data.strftime('%H:%M')
 
-# ! CORRIGIR OS UPDATE QUE ESTÃO DUPLICANDO AS MENSAGENS DOS BOTS DISCORD
-# TODO Verificar correção dos UPDATES no googlesheet que estão duplicando inserts do BOTDiscord.
-
-data_atualizacao = datetime.datetime.now()
-data_atual = data_atualizacao.strftime('%d/%m/%Y')
-hora_atual = data_atualizacao.strftime('%H:%M')
-
-data_atualizacao = np.empty((0, 0), int)
-data_atualizacao = [f"Atualizado em {data_atual} às {hora_atual}h"]
-atualizacao = np.array([data_atualizacao]).tolist()
+data = [f"Atualizado em {data_atual} às {hora_atual}h"]
+data_atualizacao = np.array([data]).tolist()
 
 configs = pd.read_json('configs.json').to_dict('records')
 for config in configs:
@@ -40,11 +35,11 @@ for config in configs:
     celula_hora_atualizacao = str(config['celula_hora_atualizacao'])
     range_titulo = str(config['range_titulo'])
 
+url = f"https://forum.mir4global.com/rank?ranktype=1&worldgroupid={grupo_mundo}&worldid={mundo}"
+
 teste3 = np.empty((0, 1), int)
 for titulo_tabela in cla:
     teste3 = np.append(teste3, np.array([[titulo_tabela]]), axis=0).tolist()
-
-url = f"https://forum.mir4global.com/rank?ranktype=1&worldgroupid={grupo_mundo}&worldid={mundo}"
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
@@ -74,7 +69,6 @@ membro_clan = []
 clan_ = []
 linha_array = np.empty((0, 5), int)
 rank_cla = 1
-hora_atualizacao = [[time.asctime()]]
 for membro in info_tabela:
     for cla_ in cla:
         if membro['Clan'] == cla_:
@@ -147,7 +141,7 @@ def main():
             spreadsheetId=planilha_id,
             range=celula_hora_atualizacao,
             valueInputOption="USER_ENTERED",
-            body={"values": atualizacao}
+            body={"values": data_atualizacao}
         ).execute()
     except HttpError as err:
         print(err)
