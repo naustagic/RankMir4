@@ -30,8 +30,6 @@ data_atualizacao = np.empty((0, 0), int)
 data_atualizacao = [f"Atualizado em {data_atual} às {hora_atual}h"]
 atualizacao = np.array([data_atualizacao]).tolist()
 
-# Leitura do arquivo configs.json
-
 configs = pd.read_json('configs.json').to_dict('records')
 for config in configs:
     cla = np.array(config['clan'])
@@ -50,29 +48,23 @@ url = f"https://forum.mir4global.com/rank?ranktype=1&worldgroupid={grupo_mundo}&
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-# Raspagem
 option = Options()
 option.headless = True
 
-# Apagar o paramentro (options=option) para ver a magica acontecendo
 driver = webdriver.Firefox()
 driver.get(url)
 
-# Clicar no botão "mostrar mais 100" 10x
 time.sleep(5)
 for i in range(9):
     driver.find_element(by=By.CLASS_NAME, value='btn_flat').click()
     time.sleep(2)
 
-# Gerar conteúdo HTML de acordo com a div "rank_section", div onde aparece a planilha
 html_conteudo = driver.find_elements(by=By.CLASS_NAME, value="rank_section")[
     2].get_attribute("innerHTML")
 
-# soup na tabela
 soup = BeautifulSoup(html_conteudo, 'html.parser')
 tabela = soup.find(name='table')
 
-# Dicionário da tabela
 tabela_completa = pd.read_html(str(tabela))[0]
 info_tabela = {}
 info_tabela = tabela_completa.to_dict('records')
@@ -108,7 +100,6 @@ fp = open('membros.json', 'w')
 fp.write(js)
 fp.close
 driver.quit
-
 
 def main():
     creds = None
