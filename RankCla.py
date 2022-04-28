@@ -31,9 +31,9 @@ for config in configs:
     mundo = str(config['mundo'])
     grupo_mundo = str(config['grupo_mundo'])
     planilha_id = str(config['planilha_id'])
-    range_planilha = str(config['range_planilha'])
-    celula_hora_atualizacao = str(config['celula_hora_atualizacao'])
     range_titulo = str(config['range_titulo'])
+    range_planilha = str(config['range_planilha'])
+    atualizado_em = str(config['atualizado_em'])
 
 url = f"https://forum.mir4global.com/rank?ranktype=1&worldgroupid={grupo_mundo}&worldid={mundo}"
 
@@ -50,12 +50,15 @@ driver = webdriver.Firefox()
 driver.get(url)
 
 time.sleep(5)
+
 for i in range(9):
     driver.find_element(by=By.CLASS_NAME, value='btn_flat').click()
     time.sleep(2)
 
-html_conteudo = driver.find_elements(by=By.CLASS_NAME, value="rank_section")[
-    2].get_attribute("innerHTML")
+html_conteudo = driver.find_elements(
+    by=By.CLASS_NAME, 
+    value="rank_section"
+    )[2].get_attribute("innerHTML")
 
 soup = BeautifulSoup(html_conteudo, 'html.parser')
 tabela = soup.find(name='table')
@@ -139,7 +142,7 @@ def main():
         ).execute()
         sheet.values().update(
             spreadsheetId=planilha_id,
-            range=celula_hora_atualizacao,
+            range=atualizado_em,
             valueInputOption="USER_ENTERED",
             body={"values": data_atualizacao}
         ).execute()
