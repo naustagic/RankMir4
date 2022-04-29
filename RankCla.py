@@ -37,21 +37,18 @@ for config in configs:
 
 url = f"https://forum.mir4global.com/rank?ranktype=1&worldgroupid={grupo_mundo}&worldid={mundo}"
 
-teste3 = np.empty((0, 1), int)
-for titulo_tabela in cla:
-    teste3 = np.append(teste3, np.array([[titulo_tabela]]), axis=0).tolist()
-
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+multi_cla = np.empty((0, 1), int)
+for array_cla in cla:
+    multi_cla = np.append(multi_cla, np.array([[array_cla]]), axis=0).tolist()
 
 option = Options()
 option.headless = True
-
 driver = webdriver.Firefox()
 driver.get(url)
 
 time.sleep(5)
 
-for i in range(9):
+for i in range(0):
     driver.find_element(by=By.CLASS_NAME, value='btn_flat').click()
     time.sleep(2)
 
@@ -59,10 +56,8 @@ html_conteudo = driver.find_elements(
     by=By.CLASS_NAME, 
     value="rank_section"
     )[2].get_attribute("innerHTML")
-
 soup = BeautifulSoup(html_conteudo, 'html.parser')
 tabela = soup.find(name='table')
-
 tabela_completa = pd.read_html(str(tabela))[0]
 info_tabela = {}
 info_tabela = tabela_completa.to_dict('records')
@@ -99,6 +94,7 @@ fp.close
 driver.quit
 
 def main():
+    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     creds = None
     if os.path.exists('token.json'):
 
@@ -131,7 +127,7 @@ def main():
             spreadsheetId=planilha_id,
             range=range_titulo,
             valueInputOption="USER_ENTERED",
-            body={"values": teste3}
+            body={"values": multi_cla}
         ).execute()
         
         sheet.values().update(
