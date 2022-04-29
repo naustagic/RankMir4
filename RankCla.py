@@ -48,7 +48,7 @@ driver.get(url)
 
 time.sleep(5)
 
-for i in range(0):
+for i in range(9):
     driver.find_element(by=By.CLASS_NAME, value='btn_flat').click()
     time.sleep(2)
 
