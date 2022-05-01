@@ -1,6 +1,6 @@
 # WebScraping de Fórum / Inserção em Google Sheet
 
-Um amigo me perguntou se teria a possibilidade de buscar alguns dados de classificação em um fórum e gerar uma planilha só com o clã dele.
+Varrer uma página, tratar os dados e inserir em uma planilha Google Sheet.
 
 ## O problema
 
