@@ -17,8 +17,6 @@ Varrer uma página, tratar os dados e inserir em uma planilha Google Sheet.
 5. Filtrar o resultado tratado para guardar apenas o clã informado;
 6. Aplicar o resultado deste filtro em uma planilha do Google Sheet.
 
-
-
 ## Pacotes Utilizados
 
 ~~~python
