@@ -92,6 +92,12 @@ fp = open('membros.json', 'w')
 fp.write(js)
 fp.close
 driver.quit
+'''
+------------------------------------------------------------------------------------------------------------------
+* TRANSFORMAR A FUNÇÃO ABAIXO DA API GOOGLE EM UMA CLASSE EXTERNA FAZENDO OS RETORNOS DE atualizar() & limpar() * 
+------------------------------------------------------------------------------------------------------------------
+'''
+
 
 def main():
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
