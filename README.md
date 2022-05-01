@@ -41,3 +41,4 @@ from selenium.webdriver.firefox.options import Options
 
 ![Screenshot_4](https://user-images.githubusercontent.com/103384209/166146076-178cec0c-28f2-4832-afbb-1096a3d45b35.png)
 ![Screenshot_5](https://user-images.githubusercontent.com/103384209/166146159-077dac4d-c15d-426e-a613-5a81256adc8d.png)
+![WebScrapingFuncionando](https://user-images.githubusercontent.com/103384209/166148955-8f46a553-acd6-45d3-bdc7-e34c69520690.gif)
