@@ -1,6 +1,6 @@
 # WebScraping de Fórum / Inserção em Google Sheet
 
-Varrer uma página, tratar os dados e inserir em uma planilha Google Sheet.
+Varrer uma página, tratar os dados, filtrar somente as linhas com clã especificado, gerar arquivo com esses dados e também inserir em uma planilha Google Sheet.
 
 ## O problema
 
