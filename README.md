@@ -8,8 +8,6 @@ Varrer uma página, tratar os dados e inserir em uma planilha Google Sheet.
 2. A cada 100 jogadores exibidos, precisa-se clicar em "mostrar mais...";
 3. São no total 10 páginas, ou seja, 1000 jogadores.
 
-![Screenshot_4](https://user-images.githubusercontent.com/103384209/166146076-178cec0c-28f2-4832-afbb-1096a3d45b35.png)
-
 ## A solução
 
 1. Abrir o fórum;
@@ -19,7 +17,7 @@ Varrer uma página, tratar os dados e inserir em uma planilha Google Sheet.
 5. Filtrar o resultado tratado para guardar apenas o clã informado;
 6. Aplicar o resultado deste filtro em uma planilha do Google Sheet.
 
-![Screenshot_5](https://user-images.githubusercontent.com/103384209/166146159-077dac4d-c15d-426e-a613-5a81256adc8d.png)
+
 
 ## Pacotes Utilizados
 
@@ -42,3 +40,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 ~~~
+
+![Screenshot_4](https://user-images.githubusercontent.com/103384209/166146076-178cec0c-28f2-4832-afbb-1096a3d45b35.png)
+![Screenshot_5](https://user-images.githubusercontent.com/103384209/166146159-077dac4d-c15d-426e-a613-5a81256adc8d.png)
